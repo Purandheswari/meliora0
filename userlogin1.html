@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Complaint System</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+    <!-- jQuery, Popper.js, Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+    <!-- JavaScript for custom functions -->
+    <script>
+        function forgotPassword() {
+            // Implement your logic here to handle forgot password functionality
+            // Example: redirect to a forgot password page
+            window.location.href = 'forgot_password.html';
+        }
+        
+        // Disable back button cache after logout
+        if (window.history && window.history.pushState) {
+            window.history.pushState('forward', null, './#forward');
+            $(window).on('popstate', function() {
+                location.replace('userlogin1.html'); // Redirect to login page
+            });
+        }
+
+        // Prevent back button from re-authenticating after logout
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: rgba(255, 255, 255, 0.951);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            width: 800px;
+            height: 460px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+        }
+        .container h3 {
+            margin-top: 20px;
+            color: #FFA500;
+            font-weight: bold;
+        }
+        .form-control {
+            margin-top: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+        .btn-login, .btn-forgot {
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .btn-login {
+            background-color: #FFD700;
+            color: black;
+            width: 28%;
+        }
+        .btn-forgot {
+            background-color: #D3D3D3;
+            color: black;
+            width: 68%;
+        }
+        .btn-account {
+            background-color: #FFA500;
+            color: white;
+            width: 100%;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .logo img {
+             margin-left: 0px;
+             width: 90px;
+             height: 70px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="logo1.png" alt="Your Logo">
+        </div>
+        <h3>User Log in</h3>
+        <form action="userlogin2.php" method="POST">
+            <input type="text" class="form-control" placeholder="Username" name="username">
+            <input type="password" class="form-control" placeholder="Password" name="pass">
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn-login">Log in</button>
+                <button type="button" class="btn-forgot" onclick="forgotPassword()">Forgot Password</button>
+            </div>
+        </form>
+        <form action="userreg1.html" method="POST">
+            <button type="submit" class="btn-account">Create New Account</button>
+        </form>
+    </div>
+</body>
+</html>

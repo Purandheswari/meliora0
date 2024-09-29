@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Complaint System</title>
+    <style>
+        body {
+            background-color: rgba(255, 255, 255, 0.951);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            width: 800px;
+            height: 450px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+            color: #FFA500;
+            font-weight: bold;
+        }
+        .container h4 {
+            margin-top: 20px;
+            color: #000000;
+            font-weight: bold;
+        }
+        .form-control {
+            margin-top: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+        .btn-login {
+            background-color: #FFD700;
+            color: black;
+            width: 28%;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .logo img {
+            margin-left: 0px;
+            width: 90px;
+            height: 70px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="logo1.png" alt="Your Logo">
+        </div>
+        <h3><strong> Admin Login</strong></h3>
+        <h4 id="text" style="background:#ea212187;border-radius:10px;padding:15px;border:1px solid #a72828;">Incorrect entry !!! Please try again
+            <i class="fa fa-times-circle" style="font-size:24px;float:right;cursor:pointer;" title="Click to close this message." onclick="closeErrorMessage();"></i>
+        </h4>
+        <form action="adminlogin.php" method="POST">
+            <input type="text" class="form-control" placeholder="Your Name" name="name">
+            <input type="password" class="form-control" placeholder="Password" name="passw">
+            <button type="submit" class="btn-login">Log in</button>
+        </form>
+        
+    </div>
+    <script>
+        function closeErrorMessage() {
+            document.getElementById('text').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
