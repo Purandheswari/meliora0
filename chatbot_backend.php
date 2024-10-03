@@ -5,8 +5,8 @@ use GuzzleHttp\Client;
 
 function getChatbotResponse($message) {
     $client = new Client();
-    $apiKey = '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'; // Replace with your actual API key
-    $responseMessage = "Hello! How can I help you today?"; // Default response
+    $apiKey = 'you_key'; 
+    $responseMessage = "Hello! How can I help you today?";
 
     try {
         $response = $client->post('https://api-inference.huggingface.co/models/facebook/blenderbot-400M-distill', [
