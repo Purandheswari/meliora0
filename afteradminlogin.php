@@ -135,6 +135,9 @@ $negativeCount = $negativeCountResult->fetch_assoc()['count'];
 			}	#file3:hover #pen3{
 				display:block;
 			}
+			.card{
+				height: 150px;
+			}
 			.tr{
 				width:auto;
 				float;left;
@@ -583,7 +586,48 @@ function selectSuggestion(suggestion) {
 			
 			<div class="" id="dashboard" style="width:100%;display:block;padding:20px;">
 			<h4 style="color:orangered;">Dashboard<hr/></h4>
-				<div id="file1" onclick="pending()" style="cursor:pointer;">
+			<div class="row">
+    <div id="file1" class="col-lg-3 col-md-6" onclick="pending()" style="cursor:pointer;">
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <!--<i class="fa fa-file-text"></i>-->
+                <p id="file12" style="display:block;font-size:15px;text-align:center;">
+                    Pending Complaints
+                    <div id="pen"><?php echo $pend; ?></div>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="file2" class="col-lg-3 col-md-6" onclick="inpro()" style="cursor:pointer;">
+        <div class="card bg-warning text-white">
+            <div class="card-body">
+                <!--<i class="fa fa-file-text"></i>-->
+                <p id="file22" style="display:block;font-size:15px;text-align:center;">
+                    In Progress Complaints
+                    <div id="pen2"><?php echo $inpro; ?></div>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="file3" class="col-lg-3 col-md-6" onclick="completed()" style="cursor:pointer;">
+        <div class="card bg-success text-white">
+            <div class="card-body">
+                <!--<i class="fa fa-file-text"></i>-->
+                <p id="file32" style="display:block;font-size:15px;text-align:center;">
+                    Completed Complaints
+                    <div id="pen3"><?php echo $compl; ?></div>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+				<!--<div id="file1" onclick="pending()" style="cursor:pointer;">
 					<i class="fa fa-file-text" style=""></i>
 					<p id="file12" style="display:block;font-size:15px;text-align:center;">Pending complaints<div id="pen"><?php echo $pend; ?></div></p>
 				</div>
@@ -594,7 +638,7 @@ function selectSuggestion(suggestion) {
 						<div id="file3">
 							<i class="fa fa-file-text" style="cursor:pointer;" onclick="complcomp()"></i>
 							<p id="file32" style="display:block;font-size:15px;text-align:center;">Completed complaints<div id="pen3"><?php echo $compl; ?></div></p>
-						</div>
+						</div>-->
 			</div>
 			
 			<!----------------------------------------------------------------------------------------DASHBOARD-->

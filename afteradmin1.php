@@ -60,18 +60,18 @@ $positiveCount = $positiveCountResult->fetch_assoc()['count'];
 $negativeCountSql = "SELECT COUNT(*) AS count FROM feedback WHERE classification = 'negative'";
 $negativeCountResult = $conn->query($negativeCountSql);
 $negativeCount = $negativeCountResult->fetch_assoc()['count'];
-// Include the PHPMailer script and the sendEmail function
+
 require 'vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-include 'db_connection.php'; // Your database connection file
+include 'db_connection.php'; 
 
 if (isset($_POST['compid']) && isset($_POST['user'])) {
     $compid = $_POST['compid'];
     $user = $_POST['user'];
 
-    // Fetch the email address of the user
+ 
     $query = "SELECT u.email FROM userregistration u JOIN complaints c ON u.username = c.user WHERE c.id = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("i", $compid);
@@ -85,21 +85,21 @@ if (isset($_POST['compid']) && isset($_POST['user'])) {
         $mail = new PHPMailer(true);
 
         try {
-            //Server settings
-            $mail->SMTPDebug = 2;                                 // Enable verbose debug output
-            $mail->isSMTP();                                      // Set mailer to use SMTP
-            $mail->Host = 'smtp.gmail.com';                       // Specify main and backup SMTP servers
-            $mail->SMTPAuth = true;                               // Enable SMTP authentication
-            $mail->Username = 'melioravvit@gmail.com';             // SMTP username
-            $mail->Password = 'ejbk jbny djme svlu';              // SMTP password
-            $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-            $mail->Port = 587;                                    // TCP port to connect to
+          
+            $mail->SMTPDebug = 2;                                 
+            $mail->isSMTP();                                      
+            $mail->Host = 'smtp.gmail.com';                       
+            $mail->SMTPAuth = true;                               
+            $mail->Username = 'your_username';             
+            $mail->Password = 'your_password';              
+            $mail->SMTPSecure = 'tls';                            
+            $mail->Port = 587;                                    
 
-            //Recipients
-            $mail->setFrom('melioravvit@gmail.com', 'Admin');
-            $mail->addAddress('21bq1a42d3@vvit.net');                        // Add a recipient
+           
+            $mail->setFrom('sender@gmail.com', 'Admin');
+            $mail->addAddress('receiver@gmail.com');                       
 
-            // Content
+          
             $mail->isHTML(true);                                  // Set email format to HTML
             $mail->Subject = 'Complaint Resolved';
             $mail->Body    = 'Dear ' . $user . ',<br><br>Your complaint with ID ' . $compid . ' has been resolved.<br><br>Best regards,<br>Admin';

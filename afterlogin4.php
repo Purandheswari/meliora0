@@ -860,7 +860,7 @@ if($conn)
 <body>
 <div class="top-left">
         <div class="logo">
-        <img src="logo.jpg" alt="Your Logo" height="70px" width="85px"></div>
+        <img src="logo.png" alt="Your Logo" height="50px" width="55px"></div>
         <div class="title">
         <h3>Meliora</h3>
 		</div>
